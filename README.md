@@ -1,43 +1,52 @@
-# Course Projects
+# TypeScript React Monorepo
 
-A collection of independent React TypeScript projects.
+This is a monorepo containing multiple TypeScript React projects built with Vite.
 
-## Projects
+## Project Structure
 
-### Goals (/projects/goals)
-
-A React TypeScript application for managing course goals. Users can create, view, and delete course goals.
+```
+packages/
+├── goals-list/    # Goals List Application
+├── react-timer/   # React Timer Application
+```
 
 ## Getting Started
 
-Each project is completely independent. To work with a project:
-
-1. Navigate to the project directory:
-
-```bash
-cd project-goals
-```
-
-2. Install dependencies:
+1. Install dependencies:
 
 ```bash
 npm install
 ```
 
-3. Run the development server:
+2. Build all packages:
 
 ```bash
-npm run dev
+npm run build
 ```
 
-## Project Structure
+3. Start development server for a specific project:
 
+```bash
+# For Goals List project
+npm run dev -w goals-list
+
+# For Timer project
+npm run dev -w react-timer
 ```
-.
-├── README.md
-└── projects/
-    └── goals/         # Course goals application
-        ├── src/       # Source code
-        ├── assets/    # Project assets
-        └── package.json
-```
+
+## Technology Stack
+
+- React 18
+- TypeScript
+- Vite
+- ESLint
+- Prettier
+
+## Development
+
+Each project in the `packages` directory is a standalone Vite application with its own:
+
+- Development server
+- Build process
+- ESLint configuration
+- TypeScript configuration
