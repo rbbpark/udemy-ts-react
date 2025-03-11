@@ -18,11 +18,7 @@ export default function CourseGoalCard({ goal, onDeleteGoal }: Props) {
         <h2>{goal.title}</h2>
         <p>{goal.description}</p>
       </div>
-      <button
-        onClick={handleClick}
-        aria-label={`Delete goal ${goal.title}`}
-        title="Delete goal"
-      >
+      <button onClick={handleClick} aria-label={`Delete goal ${goal.title}`} title="Delete goal">
         Delete
       </button>
     </article>
