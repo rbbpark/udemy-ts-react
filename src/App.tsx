@@ -3,7 +3,6 @@ import { CourseGoal } from "./types";
 import Header from "./components/Header";
 import CourseGoalList from "./components/CourseGoalList";
 import NewGoalForm from "./components/NewGoalForm";
-import goalsLogo from "./assets/goals.jpg";
 
 let nextId = 1;
 
@@ -26,16 +25,10 @@ export default function App() {
 
   return (
     <main>
-      <Header
-        image={{
-          src: goalsLogo,
-          alt: "a list of goals",
-        }}
-      >
-        <NewGoalForm onCreateGoal={handleCreateGoal} />
-        <h1>Your Course Goals</h1>
-        <CourseGoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
-      </Header>
+      <Header />
+      <NewGoalForm onCreateGoal={handleCreateGoal} />
+      <h1>Your Course Goals</h1>
+      <CourseGoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
     </main>
   );
 }

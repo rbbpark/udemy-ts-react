@@ -1,16 +1,9 @@
-type HeaderProps = React.PropsWithChildren<{
-  image: {
-    src: string;
-    alt: string;
-  };
-}>;
+import goalsLogo from "../assets/goals.jpg";
 
-export default function Header({ image, children }: HeaderProps) {
+export default function Header() {
   return (
     <div>
-      <img {...image} />
-      {/* <img src={image.src} alt={image.alt} /> */}
-      <div>{children}</div>
+      <img src={goalsLogo} alt="a list of goals" />
     </div>
   );
 }
