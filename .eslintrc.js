@@ -5,22 +5,22 @@ module.exports = {
     es2020: true,
   },
   extends: [
-    'eslint:recommended',
-    'plugin:@typescript-eslint/recommended',
-    'plugin:react/recommended',
-    'plugin:react-hooks/recommended',
-    'prettier',
+    "eslint:recommended",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier",
   ],
-  ignorePatterns: ['dist', '.eslintrc.js'],
-  parser: '@typescript-eslint/parser',
-  plugins: ['react-refresh', '@typescript-eslint'],
+  ignorePatterns: ["dist", ".eslintrc.js"],
+  parser: "@typescript-eslint/parser",
+  plugins: ["react-refresh", "@typescript-eslint"],
   rules: {
-    'react/react-in-jsx-scope': 'off',
-    'react/prop-types': 'off',
+    "react/react-in-jsx-scope": "off",
+    "react/prop-types": "off",
   },
   settings: {
     react: {
-      version: 'detect',
+      version: "detect",
     },
   },
-}; 
+};

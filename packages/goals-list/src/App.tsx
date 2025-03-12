@@ -28,7 +28,10 @@ export default function App() {
       <Header />
       <NewGoalForm onCreateGoal={handleCreateGoal} />
       <h1>Your Course Goals</h1>
-      <CourseGoalList goals={goals} onDeleteGoal={handleDeleteGoal} />
+      <CourseGoalList
+        goals={goals}
+        onDeleteGoal={handleDeleteGoal}
+      />
     </main>
   );
 }

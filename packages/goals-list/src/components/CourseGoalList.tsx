@@ -15,14 +15,20 @@ export default function CourseGoalList({ goals, onDeleteGoal }: Props) {
   return (
     <>
       {goals.length >= 4 ? (
-        <InfoBox mode="warning" severity="low">
+        <InfoBox
+          mode="warning"
+          severity="low"
+        >
           You have a lot of goals! Make sure you finish them!
         </InfoBox>
       ) : null}
       <ul>
         {goals.map((goal) => (
           <li key={goal.id}>
-            <CourseGoalCard goal={goal} onDeleteGoal={onDeleteGoal} />
+            <CourseGoalCard
+              goal={goal}
+              onDeleteGoal={onDeleteGoal}
+            />
           </li>
         ))}
       </ul>
