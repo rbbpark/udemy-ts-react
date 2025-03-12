@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import List from "./components/List";
+import Input from "./components/Input";
 
 function App() {
   type User = {
@@ -13,8 +15,15 @@ function App() {
 
   const hobbies = ["golf", "tennis", "kickboxing"];
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
   return (
     <main>
+      <Input
+        label="Test"
+        id="test"
+        ref={inputRef}
+      />
       <section>
         <h2>Users</h2>
         <List
