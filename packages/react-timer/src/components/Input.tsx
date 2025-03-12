@@ -7,7 +7,11 @@ export default function Input({ id, label, ...props }: Props) {
   return (
     <p>
       <label htmlFor={id}>{label}</label>
-      <input id={id} type="text" {...props} />
+      <input
+        id={id}
+        type="text"
+        {...props}
+      />
     </p>
   );
 }
