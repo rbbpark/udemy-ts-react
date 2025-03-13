@@ -29,6 +29,6 @@ type Props<T> = {
   renderItem: (item: T) => React.ReactNode;
 };
 
-export default function List<T>({ items, renderItem }: Props<T>) {
+export function List<T>({ items, renderItem }: Props<T>) {
   return <ul>{items.map(renderItem)}</ul>;
 }

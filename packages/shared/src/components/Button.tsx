@@ -1,3 +1,5 @@
+import React from "react";
+
 type ButtonProps = React.ComponentPropsWithoutRef<"button">;
 type AnchorProps = React.ComponentPropsWithoutRef<"a">;
 
@@ -7,7 +9,7 @@ function isAnchorProps(props: ButtonProps | AnchorProps): props is AnchorProps {
   return "href" in props;
 }
 
-export default function Button(props: ButtonProps | AnchorProps) {
+export function Button(props: ButtonProps | AnchorProps) {
   if (isAnchorProps(props)) {
     return <a {...props}></a>;
   }

@@ -4,7 +4,7 @@ type Props = {
   children: React.ReactNode;
 };
 
-export default function Card({ actions, children, title }: Props) {
+export function Card({ actions, children, title }: Props) {
   return (
     <div>
       <h2>{title}</h2>

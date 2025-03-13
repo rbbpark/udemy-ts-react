@@ -6,7 +6,7 @@ type Props<T extends ElementType> = {
 } & ComponentPropsWithoutRef<T>;
 
 // polymorphic wrapper component
-export default function Container<C extends ElementType>({ as, children, ...props }: Props<C>) {
+export function Container<C extends ElementType>({ as, children, ...props }: Props<C>) {
   const Component = as || "div";
   return <Component {...props}>{children}</Component>;
 }

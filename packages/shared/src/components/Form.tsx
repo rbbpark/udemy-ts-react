@@ -1,8 +1,5 @@
 import React, { forwardRef, useImperativeHandle, useRef } from "react";
-
-export type FormHandle = {
-  clear: () => void;
-};
+import { type FormHandle } from "../types";
 
 type Props = {
   children: React.ReactNode;
@@ -38,5 +35,4 @@ const Form = forwardRef<FormHandle, Props>(function Form({ onSave, children, ...
     </form>
   );
 });
-
-export default Form;
+export { Form };

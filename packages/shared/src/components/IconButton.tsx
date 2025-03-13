@@ -21,7 +21,7 @@ type Props = {
   children: React.ReactNode;
 } & React.ComponentPropsWithoutRef<"button">;
 
-export default function IconButton({ icon: Icon, children, ...props }: Props) {
+export function IconButton({ icon: Icon, children, ...props }: Props) {
   return (
     <button {...props}>
       <span>

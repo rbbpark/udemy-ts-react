@@ -1,6 +1,6 @@
 # TypeScript React Monorepo
 
-This is a monorepo containing multiple TypeScript React projects built with Vite.
+This is a monorepo containing multiple TypeScript React projects built with Vite for "React & TypeScript - The Practical Guide".
 
 ## Project Structure
 
@@ -8,30 +8,15 @@ This is a monorepo containing multiple TypeScript React projects built with Vite
 packages/
 ├── goals-list/    # Goals List Application
 ├── react-timer/   # React Timer Application
+├── shared/   # shared React and TypeScript code
 ```
 
 ## Getting Started
 
-1. Install dependencies:
-
 ```bash
 npm install
-```
-
-2. Build all packages:
-
-```bash
-npm run build
-```
-
-3. Start development server for a specific project:
-
-```bash
-# For Goals List project
-npm run dev -w goals-list
-
-# For Timer project
-npm run dev -w react-timer
+npm build -w packages/shared
+npm run dev -w packages/react-timer
 ```
 
 ## Technology Stack
@@ -41,12 +26,3 @@ npm run dev -w react-timer
 - Vite
 - ESLint
 - Prettier
-
-## Development
-
-Each project in the `packages` directory is a standalone Vite application with its own:
-
-- Development server
-- Build process
-- ESLint configuration
-- TypeScript configuration

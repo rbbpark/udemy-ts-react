@@ -1,8 +1,5 @@
-import React, { useRef } from "react";
-import Button from "./components/Button";
-import Form, { type FormHandle } from "./components/Form";
-import Input from "./components/Input";
-
+import { useRef } from "react";
+import { Button, Form, Input, type FormHandle } from "@udemy-ts-react/shared";
 function App() {
   const customForm = useRef<FormHandle>(null);
 
