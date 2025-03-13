@@ -5,7 +5,8 @@
   "workspaces": [
     "packages/shared",
     "packages/goals-list",
-    "packages/react-timer"
+    "packages/react-timer",
+    "packages/blog"
   ],
   "scripts": {
     "build": "npm run build --workspaces --if-present",
