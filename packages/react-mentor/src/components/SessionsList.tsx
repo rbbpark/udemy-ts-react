@@ -1,4 +1,4 @@
-import React from "react";
+import { Link } from "react-router-dom";
 import { Session } from "../types";
 
 type Props = {
@@ -16,7 +16,9 @@ export default function SessionsList({ sessions }: Props) {
               <h3>{session.title}</h3>
               <p>{session.summary}</p>
               <div className="actions">
-                <button className="button">Learn More</button>
+                <Link to={`/sessions/${session.id}`}>
+                  <button className="button">Learn More</button>
+                </Link>
               </div>
             </div>
           </div>
