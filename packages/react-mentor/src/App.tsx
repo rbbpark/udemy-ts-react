@@ -1,27 +1,33 @@
-import { RouterProvider, createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
 
-import HomePage from './pages/Home.tsx';
-import SessionsPage from './pages/Sessions.tsx';
-import SessionPage from './pages/Session.tsx';
-import Root from './pages/Root.tsx';
+import HomePage from "./pages/Home.tsx";
+import SessionsPage from "./pages/Sessions.tsx";
+import SessionPage from "./pages/Session.tsx";
+import Root from "./pages/Root.tsx";
+import { store } from "./store/store.ts";
+import { Provider } from "react-redux";
 
 const Router = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <Root />,
     children: [
       {
         index: true,
         element: <HomePage />,
       },
-      { path: 'sessions', element: <SessionsPage /> },
-      { path: 'sessions/:id', element: <SessionPage /> },
+      { path: "sessions", element: <SessionsPage /> },
+      { path: "sessions/:id", element: <SessionPage /> },
     ],
   },
 ]);
 
 function App() {
-  return <RouterProvider router={Router} />;
+  return (
+    <Provider store={store}>
+      <RouterProvider router={Router} />;
+    </Provider>
+  );
 }
 
 export default App;
