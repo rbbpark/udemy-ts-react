@@ -8,6 +8,7 @@ This is a monorepo containing multiple TypeScript React projects built with Vite
 packages/
 ├── blog/    # Blog Application
 ├── goals-list/    # Goals List Application
+├── react-mentor/    # Book Sessions Application
 ├── react-timer/   # React Timer Application
 ├── redux-shop/    # Store front Application w/ Redux
 ├── shared/   # shared React and TypeScript code
