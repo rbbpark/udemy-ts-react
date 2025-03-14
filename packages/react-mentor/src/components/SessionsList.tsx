@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { Session } from "../types";
+import { Session } from "../../types";
 
 type Props = {
   sessions: Session[];

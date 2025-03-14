@@ -1,5 +1,5 @@
 import { SESSIONS } from "../dummy-sessions";
-import { type Session } from "../types";
+import { type Session } from "../../types";
 
 export function fakeApiCall(data: unknown, delay = 1000): Promise<Response> {
   return new Promise((resolve) => {

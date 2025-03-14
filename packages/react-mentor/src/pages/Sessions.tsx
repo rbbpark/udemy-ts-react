@@ -1,6 +1,6 @@
 import { ReactNode, useEffect, useState } from "react";
 import { fetchSessions } from "../utils/https.ts";
-import { Session } from "../types.ts";
+import { Session } from "../../types/index.ts";
 import SessionsList from "../components/SessionsList.tsx";
 
 export default function SessionsPage() {
