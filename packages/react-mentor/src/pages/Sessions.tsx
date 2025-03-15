@@ -1,30 +1,10 @@
 import { ReactNode, useEffect, useState } from "react";
-import { fetchSessions } from "../utils/https.ts";
 import { Session } from "../types/index.ts";
 import SessionsList from "../components/SessionsList.tsx";
+import { useGetSessionsQuery } from "../services/sessions.ts";
 
 export default function SessionsPage() {
-  const [sessions, setSessions] = useState<Session[]>();
-  const [isFetching, setIsFetching] = useState(false);
-  const [error, setError] = useState<string>();
-
-  async function fetchData() {
-    setIsFetching(true);
-    await fetchSessions()
-      .then((data) => {
-        setSessions(data);
-      })
-      .catch((error) => {
-        if (error instanceof Error) {
-          setError(error.message);
-        }
-      });
-    setIsFetching(false);
-  }
-
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const { data, error, isLoading } = useGetSessionsQuery();
 
   let content: ReactNode;
 
@@ -32,12 +12,12 @@ export default function SessionsPage() {
     content = <p>{`Error occurred: ${error}`}</p>;
   }
 
-  if (isFetching) {
+  if (isLoading) {
     content = <p>Fetching sessions...</p>;
   }
 
-  if (sessions) {
-    content = <SessionsList sessions={sessions} />;
+  if (data) {
+    content = <SessionsList sessions={data} />;
   }
 
   return (
