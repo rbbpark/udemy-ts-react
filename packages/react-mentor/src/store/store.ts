@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { cartSlice } from "./cartSlice";
-import { sessionsApi } from "../services/sessions";
+import { sessionsApi } from "../services/sessionsApi";
 
 export const store = configureStore({
   reducer: {

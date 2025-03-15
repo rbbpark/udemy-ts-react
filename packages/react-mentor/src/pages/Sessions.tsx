@@ -1,7 +1,6 @@
-import { ReactNode, useEffect, useState } from "react";
-import { Session } from "../types/index.ts";
+import { ReactNode } from "react";
 import SessionsList from "../components/SessionsList.tsx";
-import { useGetSessionsQuery } from "../services/sessions.ts";
+import { useGetSessionsQuery } from "../services/sessionsApi.ts";
 
 export default function SessionsPage() {
   const { data, error, isLoading } = useGetSessionsQuery();
