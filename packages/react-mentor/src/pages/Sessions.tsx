@@ -8,11 +8,11 @@ export default function SessionsPage() {
   let content: ReactNode;
 
   if (error) {
-    content = <p>{`Error occurred: ${error}`}</p>;
+    content = <h2>{`Error occurred: ${error}`}</h2>;
   }
 
   if (isLoading) {
-    content = <p>Fetching sessions...</p>;
+    content = <h2>Loading...</h2>;
   }
 
   if (data) {

@@ -1,7 +1,6 @@
-import React, { ComponentPropsWithoutRef } from "react";
+import { ComponentPropsWithoutRef } from "react";
 
 type Props = {
-  onClick?: () => void;
   value: string;
   variant: "fill" | "text-only";
 } & ComponentPropsWithoutRef<"button">;
@@ -11,6 +10,7 @@ export default function Button({ onClick, variant, value, ...props }: Props) {
     <button
       onClick={onClick}
       className={`button ${variant === "text-only" && "button--text-only"}`}
+      {...props}
     >
       {value}
     </button>

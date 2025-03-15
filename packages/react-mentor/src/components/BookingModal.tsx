@@ -3,14 +3,17 @@ import { FormEvent, useEffect, useRef } from "react";
 import { Session } from "../types/index.ts";
 import Input from "./ui/Input.tsx";
 import Button from "./ui/Button.tsx";
+import { addToCart } from "../store/cartSlice.ts";
+import { useCartDispatch } from "../store/hooks.ts";
 
 type Props = {
-  // session: Session;
+  session: Session;
   onClose: () => void;
 };
 
-export default function BookingModal({ onClose }: Props) {
+export default function BookingModal({ session, onClose }: Props) {
   const modal = useRef<ModalHandle>(null);
+  const dispatch = useCartDispatch();
 
   // useEffect is used to open the Modal via its exposed `open` method when the component is mounted
   useEffect(() => {
@@ -25,7 +28,7 @@ export default function BookingModal({ onClose }: Props) {
     const formData = new FormData(event.currentTarget);
     const data = Object.fromEntries(formData);
     console.log(data); // would normally be sent to a server, together with session data
-    // sessionsCtx.bookSession(session);
+    dispatch(addToCart(session));
     onClose();
   }
 
