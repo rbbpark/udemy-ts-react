@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import Button from "./ui/Button";
 
 type Props = {};
 
@@ -15,7 +16,10 @@ export default function Header({}: Props) {
             <Link to="sessions">Browse Sessions</Link>
           </li>
           <li>
-            <button className="button">Upcoming Sessions</button>
+            <Button
+              value="Upcoming Sessions"
+              style="fill"
+            />
           </li>
         </ul>
       </nav>
