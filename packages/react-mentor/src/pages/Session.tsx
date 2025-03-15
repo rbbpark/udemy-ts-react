@@ -53,7 +53,7 @@ export default function SessionPage() {
               <p>
                 <Button
                   onClick={handleOpenModal}
-                  style="fill"
+                  variant="fill"
                   value="Book Session"
                 />
               </p>

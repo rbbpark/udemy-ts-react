@@ -18,7 +18,7 @@ export default function Header({}: Props) {
           <li>
             <Button
               value="Upcoming Sessions"
-              style="fill"
+              variant="fill"
             />
           </li>
         </ul>

@@ -54,11 +54,11 @@ export default function BookingModal({ onClose }: Props) {
           <Button
             onClick={onClose}
             value="Cancel"
-            style="text-only"
+            variant="text-only"
           />
           <Button
             value="Book Session"
-            style="fill"
+            variant="fill"
           />{" "}
         </p>
       </form>

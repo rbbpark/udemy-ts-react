@@ -23,7 +23,7 @@ export default function SessionsList({ sessions }: Props) {
                 <Link to={`/sessions/${session.id}`}>
                   <Button
                     value="Learn More"
-                    style="fill"
+                    variant="fill"
                     onClick={() => {}}
                   />
                 </Link>
