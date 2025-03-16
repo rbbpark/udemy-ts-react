@@ -1,8 +1,8 @@
-import { renderWithProviders } from "../../utils/test-utils";
-import CartModal from "../CartModal";
+import { renderWithProviders } from "../utils/test-utils";
+import CartModal from "./CartModal";
 import { screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
-import { type Session } from "../../types";
+import { type Session } from "../types";
 
 const mockSession: Session = {
   id: "sess01",

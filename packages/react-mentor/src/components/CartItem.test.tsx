@@ -6,7 +6,7 @@ import { vi } from "vitest";
 import { type Session } from "../types";
 import { setupStore } from "../store/store";
 
-const session: Session = {
+const mockSession: Session = {
   id: "sess01",
   title: "Kickstart with React: Personal Intro",
   summary: "Tailored guidance for total beginners in React.",
@@ -18,10 +18,10 @@ const session: Session = {
 };
 
 const props = {
-  id: session.id,
-  title: session.title,
-  summary: session.summary,
-  date: session.date,
+  id: mockSession.id,
+  title: mockSession.title,
+  summary: mockSession.summary,
+  date: mockSession.date,
 };
 
 describe("CartItem", () => {
