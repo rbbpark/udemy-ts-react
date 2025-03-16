@@ -4,7 +4,7 @@ import { Session } from "../types/index.ts";
 import Input from "./ui/Input.tsx";
 import Button from "./ui/Button.tsx";
 import { addToCart } from "../store/cartSlice.ts";
-import { useCartDispatch } from "../store/hooks.ts";
+import { useAppDispatch } from "../store/hooks.ts";
 
 type Props = {
   session: Session;
@@ -13,7 +13,7 @@ type Props = {
 
 export default function BookingModal({ session, onClose }: Props) {
   const modal = useRef<ModalHandle>(null);
-  const dispatch = useCartDispatch();
+  const dispatch = useAppDispatch();
 
   // useEffect is used to open the Modal via its exposed `open` method when the component is mounted
   useEffect(() => {

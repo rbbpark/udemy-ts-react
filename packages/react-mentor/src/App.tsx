@@ -4,7 +4,7 @@ import HomePage from "./pages/Home.tsx";
 import SessionsPage from "./pages/Sessions.tsx";
 import SessionPage from "./pages/Session.tsx";
 import Root from "./pages/Root.tsx";
-import { store } from "./store/store.ts";
+import { setupStore } from "./store/store.ts";
 import { Provider } from "react-redux";
 
 const Router = createBrowserRouter([
@@ -24,7 +24,7 @@ const Router = createBrowserRouter([
 
 function App() {
   return (
-    <Provider store={store}>
+    <Provider store={setupStore({})}>
       <RouterProvider router={Router} />;
     </Provider>
   );

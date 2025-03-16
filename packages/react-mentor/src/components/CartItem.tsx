@@ -1,5 +1,5 @@
 import Button from "./ui/Button";
-import { useCartDispatch } from "../store/hooks";
+import { useAppDispatch } from "../store/hooks";
 import { removeFromCart } from "../store/cartSlice";
 
 type Props = {
@@ -10,7 +10,7 @@ type Props = {
 };
 
 export default function CartItem({ id, title, summary, date }: Props) {
-  const dispatch = useCartDispatch();
+  const dispatch = useAppDispatch();
   function handleDelete() {
     dispatch(removeFromCart(id));
   }

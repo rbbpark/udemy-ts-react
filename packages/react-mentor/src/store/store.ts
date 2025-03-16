@@ -1,14 +1,21 @@
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import { cartSlice } from "./cartSlice";
 import { sessionsApi } from "../services/sessionsApi";
 
-export const store = configureStore({
-  reducer: {
-    [sessionsApi.reducerPath]: sessionsApi.reducer,
-    cart: cartSlice.reducer,
-  },
-  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sessionsApi.middleware),
+// Create the root reducer independently to obtain the RootState type
+const rootReducer = combineReducers({
+  cart: cartSlice.reducer,
+  [sessionsApi.reducerPath]: sessionsApi.reducer,
 });
 
-export type RootState = ReturnType<typeof store.getState>;
-export type AppDispatch = typeof store.dispatch;
+export function setupStore(preloadedState?: Partial<RootState>) {
+  return configureStore({
+    reducer: rootReducer,
+    middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(sessionsApi.middleware),
+    preloadedState,
+  });
+}
+
+export type RootState = ReturnType<typeof rootReducer>;
+export type AppDispatch = AppStore["dispatch"];
+export type AppStore = ReturnType<typeof setupStore>;

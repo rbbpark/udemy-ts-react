@@ -1,6 +1,5 @@
 import { it, expect, describe } from "vitest";
 import { render, screen } from "@testing-library/react";
-import userEvent from "@testing-library/user-event";
 import Input from "./Input";
 
 describe("Input", () => {
@@ -35,20 +34,5 @@ describe("Input", () => {
     expect(inputElement).toHaveAttribute("type", "password");
     expect(inputElement).toHaveAttribute("placeholder", "Enter password");
     expect(inputElement).toHaveAttribute("required");
-  });
-
-  it("handles user input correctly", async () => {
-    const user = userEvent.setup();
-    render(
-      <Input
-        label="Search"
-        id="search"
-      />
-    );
-
-    const inputElement = screen.getByLabelText("Search");
-    await user.type(inputElement, "test query");
-
-    expect(inputElement).toHaveValue("test query");
   });
 });

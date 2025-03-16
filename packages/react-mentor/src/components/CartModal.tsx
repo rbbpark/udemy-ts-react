@@ -1,6 +1,6 @@
 import Modal, { ModalHandle } from "./ui/Modal.tsx";
 import { useEffect, useRef } from "react";
-import { useCartSelector } from "../store/hooks.ts";
+import { useAppSelector } from "../store/hooks.ts";
 import CartItem from "./CartItem.tsx";
 import Button from "./ui/Button.tsx";
 
@@ -10,7 +10,7 @@ type Props = {
 
 export default function CartModal({ onClose }: Props) {
   const modal = useRef<ModalHandle>(null);
-  const sessions = useCartSelector((state) => state.cart.items);
+  const sessions = useAppSelector((state) => state.cart.items);
 
   // useEffect is used to open the Modal via its exposed `open` method when the component is mounted
   useEffect(() => {
