@@ -5,7 +5,7 @@ import { sessionsApi } from "../services/sessionsApi";
 // Create the root reducer independently to obtain the RootState type
 const rootReducer = combineReducers({
   cart: cartSlice.reducer,
-  [sessionsApi.reducerPath]: sessionsApi.reducer,
+  [sessionsApi.reducerPath]: sessionsApi.reducer, // RTK Query for GET sessions API
 });
 
 export function setupStore(preloadedState?: Partial<RootState>) {

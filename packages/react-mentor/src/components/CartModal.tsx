@@ -23,7 +23,12 @@ export default function CartModal({ onClose }: Props) {
   if (sessions.length === 0) {
     content = <p>No upcoming sessions. Start booking now!</p>;
   } else {
-    content = sessions.map((session) => <CartItem {...session} />);
+    content = sessions.map((session) => (
+      <CartItem
+        key={session.id}
+        {...session}
+      />
+    ));
   }
 
   return (
