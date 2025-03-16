@@ -16,7 +16,10 @@ export default function CartItem({ id, title, summary, date }: Props) {
   }
 
   return (
-    <div className="upcoming-session">
+    <div
+      className="upcoming-session"
+      data-testid="upcoming-session"
+    >
       <div>
         <h3>{title}</h3>
         <p>{summary}</p>

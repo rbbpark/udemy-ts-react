@@ -1,7 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import Modal, { ModalHandle } from "./Modal";
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 
 // Mock createPortal to make testing easier
 vi.mock("react-dom", () => ({
@@ -10,6 +10,25 @@ vi.mock("react-dom", () => ({
 
 // Helper component to test the Modal with useRef
 const TestComponent = ({ onClose }: { onClose: () => void }) => {
+  const modalRef = useRef<ModalHandle>(null);
+
+  useEffect(() => {
+    modalRef.current?.open();
+  }, []);
+
+  return (
+    <Modal
+      ref={modalRef}
+      onClose={onClose}
+    >
+      <div>Modal Content</div>
+      <button>Close</button>
+    </Modal>
+  );
+};
+
+// Helper component to test the Modal with useRef
+const TestComponentWithTrigger = ({ onClose }: { onClose: () => void }) => {
   const modalRef = useRef<ModalHandle>(null);
 
   const openModal = () => {
@@ -42,7 +61,10 @@ describe("Modal", () => {
       // This makes the dialog "open" in the DOM
       this.open = true;
     });
-    HTMLDialogElement.prototype.close = vi.fn();
+    HTMLDialogElement.prototype.close = vi.fn(function (this: HTMLDialogElement) {
+      // This makes the dialog "closed" in the DOM
+      this.open = false;
+    });
   });
 
   afterEach(() => {
@@ -52,34 +74,27 @@ describe("Modal", () => {
   });
 
   it("renders children correctly", () => {
-    render(
-      <Modal
-        ref={vi.fn()}
-        onClose={vi.fn()}
-      >
-        <div>Test Content</div>
-      </Modal>
-    );
-
-    expect(screen.getByText("Test Content")).toBeInTheDocument();
+    render(<TestComponent onClose={() => {}} />);
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
+    expect(screen.getByText("Modal Content")).toBeInTheDocument();
   });
 
-  it("calls showModal when open method is called", async () => {
-    render(<TestComponent onClose={vi.fn()} />);
+  it("should show when dialog's open event is triggered", async () => {
+    render(<TestComponentWithTrigger onClose={() => {}} />);
+
+    expect(screen.queryByRole("dialog")).not.toBeInTheDocument();
+    expect(HTMLDialogElement.prototype.showModal).toHaveBeenCalledTimes(0);
 
     // Click the button to open the modal
     await userEvent.click(screen.getByText("Open Modal"));
 
-    // Check if showModal was called
+    expect(screen.getByRole("dialog")).toBeInTheDocument();
     expect(HTMLDialogElement.prototype.showModal).toHaveBeenCalledTimes(1);
   });
 
-  it("calls onClose when dialog's onClose event is triggered", async () => {
+  it("calls onClose when dialog's onClose event is triggered", () => {
     const onClose = vi.fn();
     render(<TestComponent onClose={onClose} />);
-
-    // Click the button to open the modal
-    await userEvent.click(screen.getByText("Open Modal"));
 
     // Get the dialog element and trigger the close event
     const dialog = screen.getByRole("dialog");
