@@ -3,7 +3,7 @@ import { renderWithProviders } from "../utils/test-utils";
 import { screen } from "@testing-library/dom";
 import { BrowserRouter } from "react-router-dom";
 
-describe("Sessions", () => {
+describe("SessionsPage", () => {
   it("handles good response", async () => {
     renderWithProviders(
       <BrowserRouter>
