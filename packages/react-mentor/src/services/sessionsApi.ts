@@ -20,13 +20,13 @@ async function fakeApiCall() {
 export const sessionsApi = createApi({
   reducerPath: "sessions",
   baseQuery: fetchBaseQuery({
-    baseUrl: "/",
+    baseUrl: "http://localhost",
     // Override fetchBaseQuery to return dummy data
     fetchFn: fakeApiCall,
   }),
   endpoints: (builder) => ({
     getSessions: builder.query<Session[], void>({
-      query: () => `sessions`,
+      query: () => `/sessions`,
     }),
   }),
 });

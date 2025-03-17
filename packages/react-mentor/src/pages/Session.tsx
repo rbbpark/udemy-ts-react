@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { useGetSessionsQuery } from "../services/sessionsApi";
 import BookingModal from "../components/BookingModal";
 import Button from "../components/ui/Button";
+
 export default function SessionPage() {
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
 

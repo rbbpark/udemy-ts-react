@@ -38,7 +38,7 @@ describe("BookingModal", () => {
     vi.restoreAllMocks();
   });
 
-  it("should add a Session to Redux store when form is submitted", async () => {
+  it("should book a new session", async () => {
     const store = setupStore();
     const spy = vi.spyOn(store, "dispatch");
     const onClose = vi.fn();
